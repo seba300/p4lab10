@@ -29,5 +29,19 @@ namespace p4lab9
             Model = new MainWindowViewModel();
             database = new FakeDB();
         }
+        private void RegisterControl_RegisterAttempt(object sender, RegisterEventArgs e)
+        {
+            Model.RegistrationModel.Name = e.Name;
+            Model.RegistrationModel.Password = e.Password;
+            Model.RegistrationModel.RepeatedPassword = e.RepeatedPassword;
+            Model.RegistrationModel.Accept = e.Accept;
+            var result = Model.RegistrationModelValidator.Validate(Model.RegistrationModel);
+            Errors.Text = string.Join("|", result.Errors);
+
+            if (result.IsValid)
+                database.RegisterUser(Model.RegistrationModel);
+            else
+                MessageBox.Show(string.Join(" ", result.Errors), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

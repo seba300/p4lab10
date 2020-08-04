@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace p4lab9
+﻿namespace p4lab9
 {
-    class RegisterEventArgs
+    public class RegisterEventArgs
     {
         public string Name { get; set; }
         public string Password { get; set; }

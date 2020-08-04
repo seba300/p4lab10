@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace p4lab9
 {
-    class RegisterControlModel
+    public class RegisterControlModel
     {
         public string Name { get; set; }
         public string Password { get; set; }

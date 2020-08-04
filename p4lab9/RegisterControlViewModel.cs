@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace p4lab9
 {
-    class RegisterControlViewModel
+    public class RegisterControlViewModel
     {
         public RegisterControlViewModel()
         {

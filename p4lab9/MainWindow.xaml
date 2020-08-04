@@ -7,15 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="login" Height="50" Margin="110,43,630,341"/>
-        <Label Content="pass" Height="50" Margin="110,99,635,285"/>
-        <Label Content="pass2" Height="50" Margin="110,154,635,230"/>
-        <Label Content="Rejestracja" Margin="170,10,510,400" Width="120"/>
-        <CheckBox Content="CheckBox" Margin="170,217,510,192" Width="120"/>
-        <Button Content="Button" Width="120" Height="50" Margin="170,247,510,137"/>
-        <TextBox Text="TextBox" TextWrapping="Wrap" Width="120" Height="50" Margin="170,154,510,230" />
-        <TextBox Text="TextBox" TextWrapping="Wrap" Width="120" Height="50" Margin="170,99,510,285" />
-        <TextBox Text="TextBox" TextWrapping="Wrap" Width="120" Height="50" Margin="170,44,510,340"/>
-
+        <local:RegisterControl RegisterAttempt="RegisterControl_RegisterAttempt"/>
+        <TextBlock x:Name="Errors" Height="100" Width="400" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
