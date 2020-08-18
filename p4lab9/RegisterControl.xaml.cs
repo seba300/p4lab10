@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace p4lab9
 {
-    /// <summary>
-    /// Logika interakcji dla klasy RegisterControl.xaml
-    /// </summary>
     public partial class RegisterControl : UserControl
     {
         public event EventHandler<RegisterEventArgs> RegisterAttempt;
@@ -27,11 +24,12 @@ namespace p4lab9
         {
             InitializeComponent();
             registerControlViewModel = new RegisterControlViewModel();
+            DataContext = registerControlViewModel;
         }
 
         private void RegisterAction(object sender, RoutedEventArgs e)
         {
-            RegisterAttempt?.Invoke(this, new RegisterEventArgs(registerControlViewModel.Model.Name, registerControlViewModel.Model.Password, registerControlViewModel.Model.RepeatedPassword, registerControlViewModel.Model.Accept.Value));
+            RegisterAttempt?.Invoke(this, new RegisterEventArgs(registerControlViewModel.Model.Name, registerControlViewModel.Model.Password, registerControlViewModel.Model.RepeatedPassword, registerControlViewModel.Model.Accept));
             tb_Passw.Clear();
             tb_RPassw.Clear();
         }

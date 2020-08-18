@@ -9,13 +9,24 @@ namespace p4lab9
 {
     public class RegisterCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
         public RegistrationModelValidator _Validator;
+        public RegisterCommand()
+        {
+            _Validator = new RegistrationModelValidator();
+        }
+
         public bool CanExecute(object parameter)
         {
             if (parameter is object && parameter is RegistrationModel)
             {
                 var model = parameter as RegistrationModel;
+                var a = _Validator.Validate(model);
+
                 if (_Validator.Validate(model).IsValid && model.Password == model.RepeatedPassword)
                     return true;
                 else
@@ -27,9 +38,6 @@ namespace p4lab9
             }
         }
 
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public void Execute(object parameter) { }
     }
 }

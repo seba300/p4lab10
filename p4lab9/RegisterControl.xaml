@@ -18,7 +18,7 @@
             <TextBox Height="25" Width="200" x:Name="tb_Passw" Text="{Binding Model.Password}"/>
             <Label Content="Repat Password:"/>
             <TextBox Height="25" Width="200" x:Name="tb_RPassw" Text="{Binding Model.RepeatedPassword}"/>
-            <CheckBox Height="25" Width="200" x:Name="cb_Terms" Content="Akceptuję reguły poprawności"/>
+            <CheckBox Height="25" Width="200" x:Name="cb_Terms" IsChecked="{Binding Model.Accept}" Content="Akceptuję reguły poprawności"/>
             <Button Content="Potwierdź" Height="25" Width="76" Click="RegisterAction" Command="{Binding RegisterCommand}" CommandParameter="{Binding Model}"/>
         </StackPanel>
     </Grid>
